@@ -1,0 +1,71 @@
+@page
+@using LazyAbp.AreaKit.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using LazyAbp.AreaKit.Web.Pages.AreaKit.Address
+@using LazyAbp.AreaKit.Localization
+@using LazyAbp.AreaKit.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<AreaKitResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Address"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Address"].Value);
+    PageLayout.Content.MenuItemName = AreaKitMenus.Address;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/AreaKit/Address/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/AreaKit/Address/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Address"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(AreaKitPermissions.Address.Create))
+                {
+                <abp-button id="NewAddressButton"
+                            text="@L["CreateAddress"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="AddressTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["AddressFirstName"]</th>
+                <th>@L["AddressLastName"]</th>
+                <th>@L["AddressFullName"]</th>
+                <th>@L["AddressCompany"]</th>
+                <th>@L["AddressCounty"]</th>
+                <th>@L["AddressAddress1"]</th>
+                <th>@L["AddressAddress2"]</th>
+                <th>@L["AddressPostCode"]</th>
+                <th>@L["AddressEmail"]</th>
+                <th>@L["AddressPhoneNumber"]</th>
+                <th>@L["AddressFaxNumber"]</th>
+                <th>@L["AddressTag"]</th>
+                <th>@L["AddressIsDefault"]</th>
+                <th>@L["AddressDisplayOrder"]</th>
+                <th>@L["AddressCountry"]</th>
+                <th>@L["AddressStateProvince"]</th>
+                <th>@L["AddressCity"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>
