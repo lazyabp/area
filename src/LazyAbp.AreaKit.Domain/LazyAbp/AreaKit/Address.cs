@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.MultiTenancy;
 
 namespace LazyAbp.AreaKit
 {
-    public class Address : FullAuditedAggregateRoot<Guid>
+    public class Address : FullAuditedAggregateRoot<Guid>, IMultiTenant
     {
         public virtual Guid? TenantId { get; set; }
 
@@ -62,6 +63,7 @@ namespace LazyAbp.AreaKit
 
         public Address(
             Guid id,
+            Guid? tenantId,
             Guid userId,
             string firstName, 
             string lastName, 
@@ -82,6 +84,7 @@ namespace LazyAbp.AreaKit
             int displayOrder
         ) : base(id)
         {
+            TenantId = tenantId;
             UserId = userId;
             FirstName = firstName;
             LastName = lastName;

@@ -71,7 +71,7 @@ namespace LazyAbp.AreaKit
         {
             var city = await _cityRepository.GetAsync(input.CityId);
 
-            var address = new Address(GuidGenerator.Create(), CurrentUser.GetId(), input.FirstName, input.LastName, input.FullName,
+            var address = new Address(GuidGenerator.Create(), CurrentUser.TenantId, CurrentUser.GetId(), input.FirstName, input.LastName, input.FullName,
                 input.Company, city.CountryId, city.StateProvinceId, input.CityId, input.County, input.Address1, input.Address2,
                 input.PostCode, input.Email, input.PhoneNumber, input.FaxNumber, input.Tag, input.IsDefault, input.DisplayOrder);
 
