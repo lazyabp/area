@@ -2,6 +2,7 @@
   <PropertyGroup> 
     <LangVersion>latest</LangVersion> 
     <Version>0.0.1</Version>
+    <AbpVersion>4.3.0</AbpVersion>
     <Authors>LazyAbp</Authors>
     <NoWarn>$(NoWarn);CS1591;CS0436</NoWarn>
     <PackageProjectUrl>https://github.com/lazyabp/</PackageProjectUrl>
