@@ -5,6 +5,7 @@ using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using Lazy.Abp.AreaKit.EntityFrameworkCore;
+using Lazy.Abp.AreaKit.StateProvinces;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;

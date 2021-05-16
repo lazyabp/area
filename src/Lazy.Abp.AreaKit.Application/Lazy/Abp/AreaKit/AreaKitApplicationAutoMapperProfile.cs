@@ -1,6 +1,12 @@
-using Lazy.Abp.AreaKit;
-using Lazy.Abp.AreaKit.Dtos;
 using AutoMapper;
+using Lazy.Abp.AreaKit.Countries;
+using Lazy.Abp.AreaKit.StateProvinces;
+using Lazy.Abp.AreaKit.Cities;
+using Lazy.Abp.AreaKit.Addresses;
+using Lazy.Abp.AreaKit.Countries.Dtos;
+using Lazy.Abp.AreaKit.StateProvinces.Dtos;
+using Lazy.Abp.AreaKit.Cities.Dtos;
+using Lazy.Abp.AreaKit.Addresses.Dtos;
 
 namespace Lazy.Abp.AreaKit
 {
@@ -13,18 +19,18 @@ namespace Lazy.Abp.AreaKit
              * into multiple profile classes for a better organization. */
             CreateMap<Country, CountryDto>();
             CreateMap<Country, CountryViewDto>();
-            CreateMap<CreateUpdateCountryDto, Country>(MemberList.Source);
+            CreateMap<CountryCreateUpdateDto, Country>(MemberList.Source);
 
             CreateMap<StateProvince, StateProvinceDto>();
             CreateMap<StateProvince, StateProvinceViewDto>();
-            CreateMap<CreateUpdateStateProvinceDto, StateProvince>(MemberList.Source);
+            CreateMap<StateProvinceCreateUpdateDto, StateProvince>(MemberList.Source);
 
             CreateMap<City, CityDto>();
             CreateMap<City, CityViewDto>();
-            CreateMap<CreateUpdateCityDto, City>(MemberList.Source);
+            CreateMap<CityCreateUpdateDto, City>(MemberList.Source);
 
             CreateMap<Address, AddressDto>();
-            CreateMap<CreateUpdateAddressDto, Address>(MemberList.Source);
+            CreateMap<AddressCreateUpdateDto, Address>(MemberList.Source);
         }
     }
 }

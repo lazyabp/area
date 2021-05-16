@@ -1,7 +1,10 @@
-using Lazy.Abp.AreaKit;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
+using Lazy.Abp.AreaKit.Countries;
+using Lazy.Abp.AreaKit.StateProvinces;
+using Lazy.Abp.AreaKit.Cities;
+using Lazy.Abp.AreaKit.Addresses;
 
 namespace Lazy.Abp.AreaKit.EntityFrameworkCore
 {
