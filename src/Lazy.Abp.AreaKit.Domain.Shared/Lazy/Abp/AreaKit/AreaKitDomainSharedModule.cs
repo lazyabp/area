@@ -25,7 +25,7 @@ namespace Lazy.Abp.AreaKit
                 options.Resources
                     .Add<AreaKitResource>("en")
                     .AddBaseTypes(typeof(AbpValidationResource))
-                    .AddVirtualJson("/Lazy.Abp/AreaKit/Localization");
+                    .AddVirtualJson("/Lazy/Abp/AreaKit/Localization/AreaKit");
             });
 
             Configure<AbpExceptionLocalizationOptions>(options =>

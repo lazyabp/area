@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Lazy.Abp\AreaKit\Localization\AreaKit\*.json" />
-    <Content Remove="Lazy.Abp\AreaKit\Localization\AreaKit\*.json" />
+    <EmbeddedResource Include="Lazy\Abp\AreaKit\Localization\AreaKit\*.json" />
+    <Content Remove="Lazy\Abp\AreaKit\Localization\AreaKit\*.json" />
   </ItemGroup>
 
 </Project>

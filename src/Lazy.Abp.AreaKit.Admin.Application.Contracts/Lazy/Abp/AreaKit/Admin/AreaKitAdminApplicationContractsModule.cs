@@ -5,7 +5,10 @@ using Volo.Abp.Modularity;
 
 namespace Lazy.Abp.AreaKit.Admin
 {
-    [DependsOn(typeof(AreaKitDomainSharedModule))]
+    [DependsOn(
+        typeof(AreaKitApplicationContractsModule),
+        typeof(AreaKitDomainSharedModule)
+        )]
     public class AreaKitAdminApplicationContractsModule : AbpModule
     {
     }
