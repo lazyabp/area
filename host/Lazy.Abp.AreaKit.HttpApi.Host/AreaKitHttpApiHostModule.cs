@@ -32,13 +32,16 @@ using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
+using Lazy.Abp.AreaKit.Admin;
 
 namespace Lazy.Abp.AreaKit
 {
     [DependsOn(
         typeof(AreaKitApplicationModule),
+        typeof(AreaKitAdminApplicationModule),
         typeof(AreaKitEntityFrameworkCoreModule),
         typeof(AreaKitHttpApiModule),
+        typeof(AreaKitAdminHttpApiModule),
         typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
         typeof(AbpAutofacModule),
         typeof(AbpCachingStackExchangeRedisModule),

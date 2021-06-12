@@ -28,6 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Lazy.Abp.AreaKit.Admin.Application\Lazy.Abp.AreaKit.Admin.Application.csproj" />
+    <ProjectReference Include="..\..\src\Lazy.Abp.AreaKit.Admin.HttpApi\Lazy.Abp.AreaKit.Admin.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\Lazy.Abp.AreaKit.HttpApi\Lazy.Abp.AreaKit.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\Lazy.Abp.AreaKit.Application\Lazy.Abp.AreaKit.Application.csproj" />
     <ProjectReference Include="..\..\src\Lazy.Abp.AreaKit.EntityFrameworkCore\Lazy.Abp.AreaKit.EntityFrameworkCore.csproj" />
