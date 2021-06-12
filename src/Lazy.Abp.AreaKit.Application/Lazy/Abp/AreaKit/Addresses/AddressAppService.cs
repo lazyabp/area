@@ -1,4 +1,5 @@
 using Lazy.Abp.AreaKit.Addresses.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Volo.Abp.DependencyInjection;
 
 namespace Lazy.Abp.AreaKit.Addresses
 {
+    [Authorize]
     public class AddressAppService : AreaKitAppService, IAddressAppService, ITransientDependency
     {
         private readonly IAddressRepository _repository;
