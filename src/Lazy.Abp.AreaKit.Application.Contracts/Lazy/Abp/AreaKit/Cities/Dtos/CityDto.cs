@@ -22,7 +22,7 @@ namespace Lazy.Abp.AreaKit.Cities.Dtos
 
         public int DisplayOrder { get; set; }
 
-        public virtual CountryDto Country { get; set; }
+        //public virtual CountryDto Country { get; set; }
 
         public virtual StateProvinceDto StateProvince { get; set; }
     }
