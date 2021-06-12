@@ -32,7 +32,7 @@ namespace Lazy.Abp.AreaKit.Cities
         public virtual int DisplayOrder { get; private set; }
 
         //[ForeignKey("CountryId")]
-        public virtual Country Country { get; set; }
+        //public virtual Country Country { get; set; }
 
         //[ForeignKey("StateProvinceId")]
         public virtual StateProvince StateProvince { get; set; }

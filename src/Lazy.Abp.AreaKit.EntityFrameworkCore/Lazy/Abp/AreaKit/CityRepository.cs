@@ -21,8 +21,8 @@ namespace Lazy.Abp.AreaKit
         public override async Task<IQueryable<City>> WithDetailsAsync()
         {
             return (await base.WithDetailsAsync())
-                .Include(q => q.Country)
-                .Include(q => q.StateProvince);
+                //.Include(q => q.Country)
+                .Include(q => q.StateProvince).ThenInclude(x => x.Country);
         }
 
         public async Task<long> GetCountAsync(
@@ -88,7 +88,7 @@ namespace Lazy.Abp.AreaKit
         )
         {
             return (await GetQueryableAsync())
-                .IncludeIf(includeDetails, q => q.Country)
+                //.IncludeIf(includeDetails, q => q.Country)
                 .IncludeIf(includeDetails, q => q.StateProvince)
                 //.WhereIf(userId.HasValue, e => false || e.UserId == userId)
                 .WhereIf(countryId.HasValue, e => false || e.CountryId == countryId)
