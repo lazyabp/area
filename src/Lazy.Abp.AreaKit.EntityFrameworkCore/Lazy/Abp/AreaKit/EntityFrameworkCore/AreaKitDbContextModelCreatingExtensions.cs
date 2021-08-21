@@ -48,9 +48,9 @@ namespace Lazy.Abp.AreaKit.EntityFrameworkCore
             builder.Entity<Country>(b =>
             {
                 b.ToTable(options.TablePrefix + "Countries", options.Schema);
-                b.ConfigureByConvention(); 
-                
+                b.ConfigureByConvention();
 
+                b.HasIndex(q => q.CountryIsoCode).IsUnique();
                 /* Configure more properties here */
             });
 
