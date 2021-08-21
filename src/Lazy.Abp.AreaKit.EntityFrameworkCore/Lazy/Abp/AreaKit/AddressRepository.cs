@@ -18,20 +18,14 @@ namespace Lazy.Abp.AreaKit
         {
         }
 
-        public override async Task<IQueryable<Address>> WithDetailsAsync()
-        {
-            return (await base.WithDetailsAsync())
-                .Include(q => q.Country);
-        }
-
         public async Task<long> GetCountAsync(
-            Guid? countryId = null,
+            string countryIsoCode = null,
             bool? isValid = null,
             string filter = null,
             CancellationToken cancellationToken = default
         )
         {
-            var query = await GetListQuery(countryId, isValid, filter);
+            var query = await GetListQuery(countryIsoCode, isValid, filter);
 
             var totalCount = await query.LongCountAsync(GetCancellationToken(cancellationToken));
 
@@ -42,14 +36,13 @@ namespace Lazy.Abp.AreaKit
             string sorting = null,
             int maxResultCount = 10,
             int skipCount = 0,
-            Guid? countryId = null,
+            string countryIsoCode = null,
             bool? isValid = null,
             string filter = null,
-            bool includeDetails = true,
             CancellationToken cancellationToken = default
         )
         {
-            var query = await GetListQuery(countryId, isValid, filter);
+            var query = await GetListQuery(countryIsoCode, isValid, filter);
 
             return await query
                 .OrderBy(sorting ?? "CreationTime DESC")
@@ -58,20 +51,18 @@ namespace Lazy.Abp.AreaKit
         }
 
         protected virtual async Task<IQueryable<Address>> GetListQuery(
-            Guid? countryId = null,
+            string countryIsoCode = null,
             bool? isValid = null,
-            string filter = null,
-            bool includeDetails = true
+            string filter = null
         )
         {
             return (await GetQueryableAsync())
-                .IncludeIf(includeDetails, q => q.Country)
-                .WhereIf(countryId.HasValue, e => e.CountryId == countryId)
+                .WhereIf(!countryIsoCode.IsNullOrWhiteSpace(), e => e.CountryIsoCode == countryIsoCode)
                 .WhereIf(isValid.HasValue, e => e.IsValid == isValid)
-                .WhereIf(!string.IsNullOrEmpty(filter),
+                .WhereIf(!filter.IsNullOrWhiteSpace(),
                     e => false
                     || e.FullName.Contains(filter)
-                    || e.State.Contains(filter)
+                    || e.StateProvince.Contains(filter)
                     || e.City.Contains(filter)
                     || e.Street.Contains(filter)
                 );

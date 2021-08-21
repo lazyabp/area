@@ -38,7 +38,7 @@ namespace Lazy.Abp.AreaKit.Admin.StateProvinces
         public override async Task<PagedResultDto<StateProvinceDto>> GetListAsync(StateProvinceListAllRequestDto input)
         {
             var totalCount = await _repository.GetCountAsync(
-                input.CountryId,
+                null,
                 input.IsActive,
                 input.Filter
             );
@@ -47,10 +47,9 @@ namespace Lazy.Abp.AreaKit.Admin.StateProvinces
                 input.Sorting,
                 input.MaxResultCount,
                 input.SkipCount,
-                input.CountryId,
+                null,
                 input.IsActive,
-                input.Filter,
-                input.IncludeDetails
+                input.Filter
             );
 
             return new PagedResultDto<StateProvinceDto>(

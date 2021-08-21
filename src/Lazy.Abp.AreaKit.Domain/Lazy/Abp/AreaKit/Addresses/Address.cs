@@ -13,7 +13,7 @@ namespace Lazy.Abp.AreaKit.Addresses
     {
         public virtual Guid? TenantId { get; set; }
 
-        public virtual Guid CountryId { get; private set; }
+        public virtual string CountryIsoCode { get; private set; }
 
         public virtual string FirstName { get; private set; }
 
@@ -21,7 +21,7 @@ namespace Lazy.Abp.AreaKit.Addresses
 
         public virtual string FullName { get; private set; }
 
-        public virtual string State { get; private set; }
+        public virtual string StateProvince { get; private set; }
 
         public virtual string City { get; private set; }
 
@@ -32,7 +32,7 @@ namespace Lazy.Abp.AreaKit.Addresses
         public virtual bool IsValid { get; private set; }
 
         //[ForeignKey("CountryId")]
-        public virtual Country Country { get; set; }
+        //public virtual Country Country { get; set; }
 
         protected Address()
         {
@@ -41,11 +41,11 @@ namespace Lazy.Abp.AreaKit.Addresses
         public Address(
             Guid id,
             Guid? tenantId,
-            Guid countryId,
+            string countryIsoCode,
             string firstName, 
             string lastName, 
             string fullName,
-            string state,
+            string stateProvince,
             string city, 
             string street, 
             string position, 
@@ -53,11 +53,11 @@ namespace Lazy.Abp.AreaKit.Addresses
         ) : base(id)
         {
             TenantId = tenantId;
-            CountryId = countryId;
+            CountryIsoCode = countryIsoCode;
             FirstName = firstName;
             LastName = lastName;
             FullName = fullName;
-            State = state;
+            StateProvince = stateProvince;
             City = city;
             Street = street;
             Position = position;
@@ -68,7 +68,7 @@ namespace Lazy.Abp.AreaKit.Addresses
             string firstName,
             string lastName,
             string fullName,
-            string state,
+            string stateProvince,
             string city,
             string street,
             string position,
@@ -78,7 +78,7 @@ namespace Lazy.Abp.AreaKit.Addresses
             FirstName = firstName;
             LastName = lastName;
             FullName = fullName;
-            State = state;
+            StateProvince = stateProvince;
             City = city;
             Street = street;
             Position = position;

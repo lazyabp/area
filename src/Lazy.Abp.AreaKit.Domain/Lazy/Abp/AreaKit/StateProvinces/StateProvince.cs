@@ -12,7 +12,7 @@ namespace Lazy.Abp.AreaKit.StateProvinces
     {
         //public virtual Guid UserId { get; private set; }
 
-        public virtual Guid CountryId { get; private set; }
+        public virtual string CountryIsoCode { get; private set; }
 
         public virtual string Name { get; private set; }
 
@@ -29,7 +29,7 @@ namespace Lazy.Abp.AreaKit.StateProvinces
         public virtual int DisplayOrder { get; private set; }
 
         //[ForeignKey("CountryId")]
-        public virtual Country Country { get; set; }
+        //public virtual Country Country { get; set; }
 
         protected StateProvince()
         {
@@ -38,7 +38,7 @@ namespace Lazy.Abp.AreaKit.StateProvinces
         public StateProvince(
             Guid id,
             //Guid userId,
-            Guid countryId, 
+            string countryIsoCode, 
             string name, 
             string displayName, 
             string abbreviation, 
@@ -47,7 +47,7 @@ namespace Lazy.Abp.AreaKit.StateProvinces
         ) : base(id)
         {
             //UserId = userId;
-            CountryId = countryId;
+            CountryIsoCode = countryIsoCode;
             Name = name;
             DisplayName = displayName;
             Abbreviation = abbreviation;

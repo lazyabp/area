@@ -19,6 +19,6 @@ namespace Lazy.Abp.AreaKit.StateProvinces.Dtos
 
         public int DisplayOrder { get; set; }
 
-        public virtual CountryViewDto Country { get; set; }
+        //public virtual CountryViewDto Country { get; set; }
     }
 }

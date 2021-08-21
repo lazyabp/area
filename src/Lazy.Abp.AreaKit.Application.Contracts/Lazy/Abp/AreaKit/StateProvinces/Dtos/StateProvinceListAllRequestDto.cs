@@ -9,12 +9,12 @@ namespace Lazy.Abp.AreaKit.StateProvinces.Dtos
     {
         //public Guid? UserId { get; set; }
 
-        public Guid? CountryId { get; set; }
+        public string CountryIsoCode { get; set; }
 
         public bool? IsActive { get; set; }
 
         public string Filter { get; set; }
 
-        public bool IncludeDetails { get; set; }
+        //public bool IncludeDetails { get; set; }
     }
 }

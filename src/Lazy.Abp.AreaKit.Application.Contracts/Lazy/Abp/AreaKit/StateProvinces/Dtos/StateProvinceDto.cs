@@ -7,7 +7,7 @@ namespace Lazy.Abp.AreaKit.StateProvinces.Dtos
     [Serializable]
     public class StateProvinceDto : FullAuditedEntityDto<Guid>
     {
-        public Guid CountryId { get; set; }
+        public string CountryIsoCode { get; set; }
 
         public string Name { get; set; }
 
@@ -19,6 +19,6 @@ namespace Lazy.Abp.AreaKit.StateProvinces.Dtos
 
         public int DisplayOrder { get; set; }
 
-        public virtual CountryDto Country { get; set; }
+        //public virtual CountryDto Country { get; set; }
     }
 }

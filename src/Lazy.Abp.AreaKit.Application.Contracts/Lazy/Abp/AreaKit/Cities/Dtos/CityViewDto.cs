@@ -24,6 +24,6 @@ namespace Lazy.Abp.AreaKit.Cities.Dtos
 
         //public virtual CountryViewDto Country { get; set; }
 
-        public virtual StateProvinceViewDto StateProvince { get; set; }
+        //public virtual StateProvinceViewDto StateProvince { get; set; }
     }
 }

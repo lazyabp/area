@@ -10,9 +10,7 @@ namespace Lazy.Abp.AreaKit.Countries.Dtos
 
         public string DisplayName { get; set; }
 
-        public string IsoCode2 { get; set; }
-
-        public string IsoCode3 { get; set; }
+        public string CountryIsoCode { get; set; }
 
         public string CurrencyCode { get; set; }
 

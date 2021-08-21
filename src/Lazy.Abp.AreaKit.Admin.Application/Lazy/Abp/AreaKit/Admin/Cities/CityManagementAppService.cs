@@ -43,7 +43,7 @@ namespace Lazy.Abp.AreaKit.Admin.Cities
         public override async Task<CityDto> CreateAsync(CityCreateUpdateDto input)
         {
             var stateProvince = await _stateProvinceRepository.GetAsync(input.StateProvinceId);
-            var city = new City(GuidGenerator.Create(), stateProvince.CountryId, input.StateProvinceId,
+            var city = new City(GuidGenerator.Create(), stateProvince.CountryIsoCode, input.StateProvinceId,
                 input.Name, input.DisplayName, input.Abbreviation, input.IsActive, input.DisplayOrder);
             
             await _repository.InsertAsync(city);
@@ -56,7 +56,7 @@ namespace Lazy.Abp.AreaKit.Admin.Cities
         {
             var stateProvince = await _stateProvinceRepository.GetAsync(input.StateProvinceId);
             var city = await _repository.GetAsync(id);
-            city.Update(stateProvince.CountryId, input.StateProvinceId, input.Name,
+            city.Update(stateProvince.CountryIsoCode, input.StateProvinceId, input.Name,
                 input.DisplayName, input.Abbreviation, input.IsActive, input.DisplayOrder);
 
             await _repository.UpdateAsync(city);
@@ -68,7 +68,7 @@ namespace Lazy.Abp.AreaKit.Admin.Cities
         public override async Task<PagedResultDto<CityDto>> GetListAsync(CityListAllRequestDto input)
         {
             var totalCount = await _repository.GetCountAsync(
-                input.CountryId,
+                input.CountryIsoCode,
                 input.StateProvinceId,
                 input.IsActive,
                 input.Filter
@@ -78,11 +78,10 @@ namespace Lazy.Abp.AreaKit.Admin.Cities
                 input.Sorting,
                 input.MaxResultCount,
                 input.SkipCount,
-                input.CountryId,
+                input.CountryIsoCode,
                 input.StateProvinceId,
                 input.IsActive,
-                input.Filter,
-                input.IncludeDetails
+                input.Filter
             );
 
             return new PagedResultDto<CityDto>(

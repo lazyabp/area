@@ -10,6 +10,6 @@ namespace Lazy.Abp.AreaKit.Cities.Dtos
 
         public string Filter { get; set; }
 
-        public bool IncludeDetails { get; set; }
+        //public bool IncludeDetails { get; set; }
     }
 }

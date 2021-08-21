@@ -13,7 +13,7 @@ namespace Lazy.Abp.AreaKit.Cities
     {
         //public virtual Guid UserId { get; private set; }
 
-        public virtual Guid CountryId { get; private set; }
+        public virtual string CountryIsoCode { get; private set; }
 
         public virtual Guid StateProvinceId { get; private set; }
 
@@ -35,7 +35,7 @@ namespace Lazy.Abp.AreaKit.Cities
         //public virtual Country Country { get; set; }
 
         //[ForeignKey("StateProvinceId")]
-        public virtual StateProvince StateProvince { get; set; }
+        //public virtual StateProvince StateProvince { get; set; }
 
         protected City()
         {
@@ -44,7 +44,7 @@ namespace Lazy.Abp.AreaKit.Cities
         public City(
             Guid id,
             //Guid userId,
-            Guid countryId, 
+            string countryIsoCode, 
             Guid stateProvinceId, 
             string name, 
             string displayName, 
@@ -54,7 +54,7 @@ namespace Lazy.Abp.AreaKit.Cities
         ) : base(id)
         {
             //UserId = userId;
-            CountryId = countryId;
+            CountryIsoCode = countryIsoCode;
             StateProvinceId = stateProvinceId;
             Name = name;
             DisplayName = displayName;
@@ -64,7 +64,7 @@ namespace Lazy.Abp.AreaKit.Cities
         }
 
         public void Update(
-            Guid countryId,
+            string countryIsoCode,
             Guid stateProvinceId,
             string name,
             string displayName,
@@ -73,7 +73,7 @@ namespace Lazy.Abp.AreaKit.Cities
             int displayOrder
         )
         {
-            CountryId = countryId;
+            CountryIsoCode = countryIsoCode;
             StateProvinceId = stateProvinceId;
             Name = name;
             DisplayName = displayName;

@@ -18,21 +18,15 @@ namespace Lazy.Abp.AreaKit
         {
         }
 
-        public override async Task<IQueryable<StateProvince>> WithDetailsAsync()
-        {
-            return (await base.WithDetailsAsync())
-                .Include(q => q.Country);
-        }
-
         public async Task<long> GetCountAsync(
                 //Guid? userId = null,
-                Guid? countryId = null,
+                string countryIsoCode = null,
                 bool? isActive = null,
                 string filter = null,
                 CancellationToken cancellationToken = default
             )
         {
-            var query = await GetListQuery(countryId, isActive, filter, false);
+            var query = await GetListQuery(countryIsoCode, isActive, filter);
 
             return await query
                 .LongCountAsync(GetCancellationToken(cancellationToken));
@@ -43,14 +37,13 @@ namespace Lazy.Abp.AreaKit
                 int maxResultCount = 10,
                 int skipCount = 0,
                 //Guid? userId = null,
-                Guid? countryId = null,
+                string countryIsoCode = null,
                 bool? isActive = null,
                 string filter = null,
-                bool includeDetails = true,
                 CancellationToken cancellationToken = default
             )
         {
-            var query = await GetListQuery(countryId, isActive, filter, includeDetails);
+            var query = await GetListQuery(countryIsoCode, isActive, filter);
 
             return await query
                 .OrderBy(sorting ?? "CreationTime DESC")
@@ -60,14 +53,13 @@ namespace Lazy.Abp.AreaKit
 
         public virtual async Task<List<StateProvince>> GetListAsync(
                 string sorting = null,
-                Guid? countryId = null,
+                string countryIsoCode = null,
                 bool? isActive = null,
                 string filter = null,
-                bool includeDetails = true,
                 CancellationToken cancellationToken = default
             )
         {
-            var query = await GetListQuery(countryId, isActive, filter, includeDetails);
+            var query = await GetListQuery(countryIsoCode, isActive, filter);
 
             return await query
                 .OrderBy(sorting ?? "CreationTime DESC")
@@ -76,16 +68,13 @@ namespace Lazy.Abp.AreaKit
 
         protected virtual async Task<IQueryable<StateProvince>> GetListQuery(
             //Guid? userId = null,
-            Guid? countryId = null,
+            string countryIsoCode = null,
             bool? isActive = null,
-            string filter = null,
-            bool includeDetails = true
+            string filter = null
         )
         {
             return (await GetQueryableAsync())
-                .IncludeIf(includeDetails, q => q.Country)
-                //.WhereIf(userId.HasValue, e => false || e.UserId == userId)
-                .WhereIf(countryId.HasValue, e => false || e.CountryId == countryId)
+                .WhereIf(!countryIsoCode.IsNullOrWhiteSpace(), e => false || e.CountryIsoCode == countryIsoCode)
                 .WhereIf(isActive.HasValue, e => false || e.IsActive == isActive)
                 .WhereIf(!string.IsNullOrEmpty(filter),
                     e => false

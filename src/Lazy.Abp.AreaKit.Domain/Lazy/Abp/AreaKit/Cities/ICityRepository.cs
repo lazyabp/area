@@ -10,7 +10,7 @@ namespace Lazy.Abp.AreaKit.Cities
     {
         Task<long> GetCountAsync(
             //Guid? userId = null,
-            Guid? countryId = null,
+            string countryIsoCode = null,
             Guid? stateProvinceId = null,
             bool? isActive = null,
             string filter = null,
@@ -22,21 +22,19 @@ namespace Lazy.Abp.AreaKit.Cities
             int maxResultCount = 10,
             int skipCount = 0,
             //Guid? userId = null,
-            Guid? countryId = null,
+            string countryIsoCode = null,
             Guid? stateProvinceId = null,
             bool? isActive = null,
             string filter = null,
-            bool includeDetails = true,
             CancellationToken cancellationToken = default
         );
 
         Task<List<City>> GetListAsync(
             string sorting = null,
-            Guid? countryId = null,
+            string countryIsoCode = null,
             Guid? stateProvinceId = null,
             bool? isActive = null,
             string filter = null,
-            bool includeDetails = true,
             CancellationToken cancellationToken = default
         );
     }

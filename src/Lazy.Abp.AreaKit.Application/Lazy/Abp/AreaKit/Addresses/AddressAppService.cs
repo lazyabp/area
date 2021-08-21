@@ -28,7 +28,7 @@ namespace Lazy.Abp.AreaKit.Addresses
         public async Task<PagedResultDto<AddressDto>> GetListAsync(AddressListRequestDto input)
         {
             var totalCount = await _repository.GetCountAsync(
-                input.CountryId, 
+                null, 
                 input.IsValid,
                 input.Filter
             );
@@ -37,7 +37,7 @@ namespace Lazy.Abp.AreaKit.Addresses
                 input.Sorting,
                 input.MaxResultCount,
                 input.SkipCount,
-                input.CountryId,
+                null,
                 input.IsValid,
                 input.Filter
             );
@@ -50,8 +50,8 @@ namespace Lazy.Abp.AreaKit.Addresses
 
         public async Task<AddressDto> CreateAsync(AddressCreateUpdateDto input)
         {
-            var address = new Address(GuidGenerator.Create(), CurrentUser.TenantId, input.CountryId, 
-                input.FirstName, input.LastName, input.FullName, input.State, input.City, input.Street, input.Position, input.IsValid);
+            var address = new Address(GuidGenerator.Create(), CurrentUser.TenantId, input.CountryIsoCode,
+                input.FirstName, input.LastName, input.FullName, input.StateProvince, input.City, input.Street, input.Position, input.IsValid);
 
             address = await _repository.InsertAsync(address);
 
@@ -62,7 +62,7 @@ namespace Lazy.Abp.AreaKit.Addresses
         {
             var address = await _repository.GetAsync(id);
 
-            address.Update(input.FirstName, input.LastName, input.FullName, input.State, input.City, input.Street, input.Position, input.IsValid);
+            address.Update(input.FirstName, input.LastName, input.FullName, input.StateProvince, input.City, input.Street, input.Position, input.IsValid);
 
             address = await _repository.UpdateAsync(address);
 

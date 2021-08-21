@@ -9,7 +9,7 @@ namespace Lazy.Abp.AreaKit.Addresses
     public interface IAddressRepository : IRepository<Address, Guid>
     {
         Task<long> GetCountAsync(
-            Guid? countryId = null,
+            string countryIsoCode = null,
             bool? isValid = null,
             string filter = null,
             CancellationToken cancellationToken = default
@@ -19,10 +19,9 @@ namespace Lazy.Abp.AreaKit.Addresses
             string sorting = null,
             int maxResultCount = 10,
             int skipCount = 0,
-            Guid? countryId = null,
+            string countryIsoCode = null,
             bool? isValid = null,
             string filter = null,
-            bool includeDetails = true,
             CancellationToken cancellationToken = default
         );
     }

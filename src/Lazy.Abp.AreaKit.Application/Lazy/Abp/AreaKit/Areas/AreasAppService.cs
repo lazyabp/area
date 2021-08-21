@@ -38,7 +38,7 @@ namespace Lazy.Abp.AreaKit.Areas
 
         public async Task<ListResultDto<StateProvinceViewDto>> GetStateProvincesAsync(StateProvinceListRequestDto input)
         {
-            var list = await _stateProvinceRepository.GetListAsync(null, input.CountryId, true, input.Filter, input.IncludeDetails);
+            var list = await _stateProvinceRepository.GetListAsync(null, input.CountryIsoCode, true, input.Filter);
 
             return new ListResultDto<StateProvinceViewDto>(
                 ObjectMapper.Map<List<StateProvince>, List<StateProvinceViewDto>>(list)
@@ -47,7 +47,7 @@ namespace Lazy.Abp.AreaKit.Areas
 
         public async Task<ListResultDto<CityViewDto>> GetCitiesAsync(CityListRequestDto input)
         {
-            var list = await _cityRepository.GetListAsync(null, null, input.StateProvinceId, true, input.Filter, input.IncludeDetails);
+            var list = await _cityRepository.GetListAsync(null, null, input.StateProvinceId, true, input.Filter);
 
             return new ListResultDto<CityViewDto>(
                 ObjectMapper.Map<List<City>, List<CityViewDto>>(list)

@@ -9,7 +9,5 @@ namespace Lazy.Abp.AreaKit.Countries.Dtos
         public Continent? Continent { get; set; }
 
         public string Filter { get; set; }
-
-        public bool IncludeDetails { get; set; }
     }
 }

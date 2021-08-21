@@ -7,7 +7,7 @@ namespace Lazy.Abp.AreaKit.Addresses.Dtos
     [Serializable]
     public class AddressDto : FullAuditedEntityDto<Guid>
     {
-        public virtual Guid CountryId { get; set; }
+        public virtual string CountryIsoCode { get; set; }
 
         public virtual string FirstName { get; set; }
 
@@ -15,7 +15,7 @@ namespace Lazy.Abp.AreaKit.Addresses.Dtos
 
         public virtual string FullName { get; set; }
 
-        public virtual string State { get; set; }
+        public virtual string StateProvince { get; set; }
 
         public virtual string City { get; set; }
 
@@ -24,7 +24,5 @@ namespace Lazy.Abp.AreaKit.Addresses.Dtos
         public virtual string Position { get; set; }
 
         public virtual bool IsValid { get; set; }
-
-        public virtual CountryDto Country { get; set; }
     }
 }

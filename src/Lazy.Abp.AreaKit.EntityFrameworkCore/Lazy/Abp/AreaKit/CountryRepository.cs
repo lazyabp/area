@@ -79,9 +79,9 @@ namespace Lazy.Abp.AreaKit
                 .WhereIf(isActive.HasValue, e => false || e.IsActive == isActive)
                 .WhereIf(!string.IsNullOrEmpty(filter),
                     e => false
+                    || e.CountryIsoCode.Contains(filter)
                     || e.Name.Contains(filter)
                     || e.DisplayName.Contains(filter)
-                    || e.IsoCode3.Contains(filter)
                 );
         }
     }

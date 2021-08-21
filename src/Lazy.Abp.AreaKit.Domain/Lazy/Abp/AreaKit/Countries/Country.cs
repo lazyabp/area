@@ -15,10 +15,7 @@ namespace Lazy.Abp.AreaKit.Countries
         public virtual string DisplayName { get; private set; }
 
         [MaxLength(CountryConsts.MaxIsoCode2Length)]
-        public virtual string IsoCode2 { get; private set; }
-
-        [MaxLength(CountryConsts.MaxIsoCode3Length)]
-        public virtual string IsoCode3 { get; private set; }
+        public virtual string CountryIsoCode { get; private set; }
 
         [MaxLength(CountryConsts.MaxCurrencyCodeLength)]
         public virtual string CurrencyCode { get; private set; }
@@ -40,9 +37,8 @@ namespace Lazy.Abp.AreaKit.Countries
             Guid id,
             //Guid userId,
             string name, 
-            string displayName, 
-            string isoCode2, 
-            string isoCode3, 
+            string displayName,
+            string countryIsoCode,
             string currencyCode, 
             string flag, 
             Continent continent, 
@@ -53,8 +49,7 @@ namespace Lazy.Abp.AreaKit.Countries
             //UserId = userId;
             Name = name;
             DisplayName = displayName;
-            IsoCode2 = isoCode2;
-            IsoCode3 = isoCode3;
+            CountryIsoCode = countryIsoCode;
             CurrencyCode = currencyCode;
             Flag = flag;
             Continent = continent;

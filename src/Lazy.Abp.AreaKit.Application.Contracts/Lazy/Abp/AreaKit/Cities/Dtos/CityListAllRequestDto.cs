@@ -9,7 +9,7 @@ namespace Lazy.Abp.AreaKit.Cities.Dtos
     {
         //public Guid? UserId { get; set; }
 
-        public Guid? CountryId { get; set; }
+        public string CountryIsoCode { get; set; }
 
         public Guid? StateProvinceId { get; set; }
 
@@ -17,6 +17,6 @@ namespace Lazy.Abp.AreaKit.Cities.Dtos
 
         public string Filter { get; set; }
 
-        public bool IncludeDetails { get; set; }
+        //public bool IncludeDetails { get; set; }
     }
 }
