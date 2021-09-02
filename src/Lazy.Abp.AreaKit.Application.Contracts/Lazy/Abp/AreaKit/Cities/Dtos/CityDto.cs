@@ -8,7 +8,7 @@ namespace Lazy.Abp.AreaKit.Cities.Dtos
     [Serializable]
     public class CityDto : FullAuditedEntityDto<Guid>
     {
-        public Guid CountryId { get; set; }
+        public string CountryIsoCode { get; set; }
 
         public Guid StateProvinceId { get; set; }
 

@@ -7,7 +7,7 @@ namespace Lazy.Abp.AreaKit.StateProvinces.Dtos
     [Serializable]
     public class StateProvinceViewDto : EntityDto<Guid>
     {
-        public Guid CountryId { get; set; }
+        public string CountryIsoCode { get; set; }
 
         public string Name { get; set; }
 

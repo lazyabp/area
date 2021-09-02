@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="$(AbpVersion)" />
+    <ProjectReference Include="..\Lazy.Abp.AreaKit.Domain.Shared\Lazy.Abp.AreaKit.Domain.Shared.csproj" />
     <ProjectReference Include="..\Lazy.Abp.AreaKit.Domain\Lazy.Abp.AreaKit.Domain.csproj" />
   </ItemGroup>
 
